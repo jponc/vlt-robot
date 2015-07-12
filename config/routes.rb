@@ -9,4 +9,12 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy"
 
   get "game", to: "game#index"
+
+  namespace :api do
+    resources :robots do
+      member do
+        post :latest
+      end
+    end
+  end
 end

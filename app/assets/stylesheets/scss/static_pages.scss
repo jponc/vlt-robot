@@ -31,5 +31,17 @@
     max-width: 100px;
     width:20%;
     padding-bottom:20%;
+    border: 1px solid;
+    opacity: 0.6;
+    background-color: gray;
+    cursor: pointer;
+
+    &:nth-child(odd) {
+      background-color: red;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

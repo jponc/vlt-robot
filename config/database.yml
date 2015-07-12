@@ -16,5 +16,5 @@ test:
 production:
   <<: *default
   database: vltrobot_production
-  username: taxzestimates
+  username: vltrobot
   password: <%= ENV['TAXZESTIMATES_DATABASE_PASSWORD'] %>
