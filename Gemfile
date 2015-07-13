@@ -25,8 +25,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'mocha'
+  gem 'database_cleaner'
 end
 
 gem 'ejs'
