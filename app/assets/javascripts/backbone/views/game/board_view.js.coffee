@@ -22,5 +22,6 @@ class App.Views.Game.BoardView extends Backbone.View
   renderIcon: ->
     position = @model.currentPosition
     if !position.isNew()
+      @$('.glyphicon').remove() # Reset icon
       coords = position.coordinates()
       @$(".square[data-coord='#{coords}']").html(@templates.icon(position: position))

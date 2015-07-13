@@ -26,7 +26,8 @@ class Api::RobotsController < Api::ApplicationController
   end
 
   def action
-    # binding.pry
+    resp = Robot::MovementService.new(@robot).movement(params[:movement])
+    render json: resp
   end
 
   private
