@@ -16,7 +16,7 @@ class App.Views.Game.MovesView extends Backbone.View
     @model.on 'positionChanged', @positionChanged, @
 
   positionChanged: ->
-    @$('.place-container').hide()
+    @hidePlaceForm()
 
   afterShow: ->
     coordinates = [{id: '0', text: '0'}, {id: '1', text: '1'},  {id: '2', text: '2'}, {id: '3', text: '3'}, {id: '4', text: '4'}]
@@ -35,4 +35,15 @@ class App.Views.Game.MovesView extends Backbone.View
 
   actionSelected: (event) ->
     action = $(event.currentTarget).data('action')
-    @model.actionSelected(action)
+    if action is 'place'
+      @showPlaceForm()
+    else if action is 'report'
+      @model.reportCoordinate()
+    else
+      @model.actionSelected(action)
+
+  showPlaceForm: ->
+    @$('.place-container').show()
+
+  hidePlaceForm: ->
+    @$('.place-container').hide()

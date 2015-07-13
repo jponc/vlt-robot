@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :robots do
       member do
+        get :report
+
         post :change_position
         post :action
       end

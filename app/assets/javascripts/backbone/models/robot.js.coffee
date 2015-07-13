@@ -30,3 +30,9 @@ class App.Models.Robot extends Backbone.Model
   setNewPosition: (positionAttributes) ->
     @currentPosition.clear()
     @currentPosition.set(positionAttributes)
+
+  reportCoordinate: ->
+    $.ajax
+      url: "/api/robots/#{@id}/report"
+      success: (resp) ->
+        alert(resp.msg)

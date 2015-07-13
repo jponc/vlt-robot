@@ -1,5 +1,5 @@
 class Api::RobotsController < Api::ApplicationController
-  before_filter :init_robot, only: [:change_position, :action]
+  before_filter :init_robot, only: [:change_position, :action, :report]
   def index
     robots = current_user.robots.map { |r| RobotPresenter.new(r) }
     render json: robots
@@ -28,6 +28,11 @@ class Api::RobotsController < Api::ApplicationController
   def action
     resp = Robot::MovementService.new(@robot).movement(params[:movement])
     render json: resp
+  end
+
+  def report
+    msg = Robot::ReportService.new(@robot).report
+    render json: {msg: msg}
   end
 
   private
