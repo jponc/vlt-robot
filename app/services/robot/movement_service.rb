@@ -26,6 +26,7 @@ class Robot::MovementService
     x = last_position.x_pos.to_i
     y = last_position.y_pos.to_i
     facing = last_position.facing
+
     case facing
     when 'north'
       x += 1
