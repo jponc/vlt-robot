@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  has_one :robot
+  has_many :robots
 end

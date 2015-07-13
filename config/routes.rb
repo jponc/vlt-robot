@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :robots do
       member do
-        post :latest
+        post :change_position
+        post :action
       end
     end
   end

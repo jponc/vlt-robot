@@ -3,5 +3,6 @@
 
 :javascript
   $(function() {
+    vlt.robot = new App.Models.Robot(#{@robot.to_json});
     App.router = new App.Routers.Game();
   });

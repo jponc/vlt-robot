@@ -1,3 +1,36 @@
 #game-main-container {
   margin-top: 30px;
+
+  .board {
+    max-width:500px;
+    margin: 0 auto;
+
+    .square {
+      float:left;
+      max-height: 100px;
+      max-width: 100px;
+      width:20%;
+      padding-bottom:20%;
+      border: 1px solid;
+      opacity: 0.6;
+      background-color: gray;
+      cursor: pointer;
+      text-align: center;
+
+      &:nth-child(odd) {
+        background-color: red;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .glyphicon {
+        padding: 20px;
+        color: white;
+        font-size: 60px;
+      }
+    }
+  }
+
 }

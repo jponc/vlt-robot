@@ -3,6 +3,7 @@ class RobotPresenter
   delegate :as_json, :to => :data
 
   ATTRS = [
+    :id,
     :user_id,
     :name,
     :created_at
@@ -19,5 +20,6 @@ class RobotPresenter
     ATTRS.each do |attribute|
       @data[attribute] = data.send(attribute)
     end
+    @data[:current_position] = data.positions.last
   end
 end

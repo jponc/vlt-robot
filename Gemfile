@@ -32,3 +32,4 @@ end
 gem 'ejs'
 gem 'haml'
 gem 'squeel'
+gem 'select2-rails'

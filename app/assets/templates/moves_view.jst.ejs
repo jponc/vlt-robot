@@ -1,5 +1,29 @@
 <div>
-  <ul>
-    <li>PLACE</li>
-  </ul>
+  <div class='possible-action-container'>
+    <div><button class='btn' data-action='place'>PLACE</button></div>
+    <div><button class='btn' data-action='move'>MOVE</button></div>
+    <div><button class='btn' data-action='left'>LEFT</button></div>
+    <div><button class='btn' data-action='right'>RIGHT</button></div>
+  </div>
+
+  <div class='place-container'>
+    <p>Place your robot in a new coordinate</p>
+    <form class='change-position-form'>
+      <div class='form-group'>
+        <label for="place-x-coord">X Coordinate</label>
+        <input type='hidden' class='coords-input' name="x_pos">
+      </div>
+      <div class='form-group'>
+        <label for="place-y-coord">Y Coordinate</label>
+        <input type='hidden' class='coords-input' name="y_pos">
+      </div>
+
+      <div class='form-group'>
+        <label>Facing</label>
+        <input type='hidden' id="facing-input" name="facing">
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
 </div>

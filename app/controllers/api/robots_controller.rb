@@ -1,5 +1,5 @@
 class Api::RobotsController < Api::ApplicationController
-  before_filter :init_robot, only: [:new_position]
+  before_filter :init_robot, only: [:change_position, :action]
   def index
     robots = current_user.robots.map { |r| RobotPresenter.new(r) }
     render json: robots
@@ -14,8 +14,19 @@ class Api::RobotsController < Api::ApplicationController
     end
   end
 
-  def new_position
-    @robot.positions.build(position_params)
+  def change_position
+    position = @robot.positions.build(position_params)
+    if position.save
+      @resp[:success] = true
+      @resp[:new_position] = position
+    else
+      @resp[:errors] << 'Robot position not changed.'
+    end
+    render json: @resp
+  end
+
+  def action
+    # binding.pry
   end
 
   private
@@ -28,5 +39,6 @@ class Api::RobotsController < Api::ApplicationController
   end
 
   def position_params
+    params.require(:position).permit(:x_pos, :y_pos, :facing, :move_type)
   end
 end
