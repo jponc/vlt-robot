@@ -28,6 +28,12 @@ class App.Views.Game.MovesView extends Backbone.View
     @$('#facing-input').select2
       data: facingData
 
+    @evaluatePlaceForm()
+
+  evaluatePlaceForm: ->
+    noPosition = @model.currentPosition.isNew()
+    @$('.place-container').toggle(noPosition)
+
   changePositionForm: (event) ->
     event.preventDefault()
     params = $(event.currentTarget).serializeObject()

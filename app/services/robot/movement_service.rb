@@ -7,13 +7,17 @@ class Robot::MovementService
   end
 
   def movement(action)
-    case action
-    when 'move'
-      move
-    when 'left'
-      left
-    when 'right'
-      right
+    if last_position.present?
+      case action
+      when 'move'
+        move
+      when 'left'
+        left
+      when 'right'
+        right
+      end
+    else
+      {success: false, errors: ['Cannot move. No robot in the battlefield!']}
     end
   end
 
@@ -41,7 +45,7 @@ class Robot::MovementService
       resp[:new_position] = new_position
       resp[:success] = true
     else
-      resp[:errors] << "You're going to fall! Please be careful nextime."
+      resp[:errors] << "Sir I'm going to fall. Please take care."
     end
 
     resp
