@@ -29,13 +29,13 @@ class Robot::MovementService
 
     case facing
     when 'north'
-      x += 1
-    when 'east'
       y += 1
+    when 'east'
+      x += 1
     when 'south'
-      x -= 1
-    when 'west'
       y -= 1
+    when 'west'
+      x -= 1
     end
 
     if (0..4).include?(x) && (0..4).include?(y)
